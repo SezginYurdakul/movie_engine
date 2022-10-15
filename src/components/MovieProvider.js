@@ -5,17 +5,18 @@ import { createContext } from "react";
 
 export const MovieContext = createContext();
 export const MovieProvider = ({ children }) => {
-
+  
     const [movies, setMovies] = useState([]);
     const [category, setCategory] = useState("top_rated");
     const [error, setError] = useState("");
     const page = 1;
     const API_key = "api_key=1b2e9155594c74034ae9f47ba073a1cd";
+    
 
-    // const []
     useEffect(() => {
+
         const url = `https://api.themoviedb.org/3/movie/${category}?${API_key}&language=en-US&page=${page}`;
-        const fetchData = async () => {
+        const fetchDataList = async () => {
             try {
                 //if (category) {
                 const response = await fetch(url);
@@ -27,8 +28,10 @@ export const MovieProvider = ({ children }) => {
                 setError(error.message);
             }
         }
-        fetchData();
+        fetchDataList();
     }, [category])
+
+
 
 
 
@@ -42,10 +45,9 @@ export const MovieProvider = ({ children }) => {
         } catch (error) {
             setError(error.message);
         }
-
     }
 
-
+    
 
 
 

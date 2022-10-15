@@ -1,9 +1,13 @@
 import React from "react";
-const MovieCard = ({movie}) => {
+import { useNavigate } from "react-router-dom";
+
+const MovieCard = ({ movie }) => {
+    const navigate = useNavigate();
     let img_path = "https://image.tmdb.org/t/p/w500";
+
     return (
         <>
-            <div className="movie">
+            <div onClick={() => navigate(`/movie/${movie.id}`)} className="movie">
                 <img src={img_path + movie.poster_path} className="poster" alt={movie.title}></img>
                 <div className="movie-details">
                     <div className="box">
