@@ -1,22 +1,26 @@
-
+import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from './components/Navbar/Navbar';
-import MovieList from './components/MovieList';
-import { MovieProvider } from "./components/MovieProvider.js";
-import MovieDetail from "./components/MovieDetail";
+import MovieList from './pages/MovieList';
+import { MovieProvider } from "./contexts/MovieProvider.js";
+import MovieDetail from "./pages/MovieDetail";
+import { FavoriteProvider } from "./contexts/FavouriteProvider";
+import FavoriteList from "./pages/FavoriteList";
 //import Main from './components/Main';
 function App() {
   return (
     <div className="App">
       <MovieProvider>
-
-        <Router>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<MovieList />} />
-            <Route path="movie/:id" element={<MovieDetail />} />
-          </Routes>
-        </Router>
+        <FavoriteProvider>
+          <Router>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<MovieList />} />
+              <Route path="movie/:id" element={<MovieDetail />} />
+              <Route path='/favorites' element={<FavoriteList/>}/>
+            </Routes>
+          </Router>
+        </FavoriteProvider>
       </MovieProvider>
     </div>
   );

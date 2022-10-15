@@ -9,7 +9,7 @@ export const MovieProvider = ({ children }) => {
     const [movies, setMovies] = useState([]);
     const [category, setCategory] = useState("top_rated");
     const [error, setError] = useState("");
-    const page = 1;
+    const [page,setPage ]= useState(1);
     const API_key = "api_key=1b2e9155594c74034ae9f47ba073a1cd";
     
 
@@ -29,7 +29,7 @@ export const MovieProvider = ({ children }) => {
             }
         }
         fetchDataList();
-    }, [category])
+    }, [category,page])
 
 
 
@@ -51,7 +51,7 @@ export const MovieProvider = ({ children }) => {
 
 
 
-    return <MovieContext.Provider value={{ movies, setCategory, error, searchMovies }} >
+    return <MovieContext.Provider value={{ movies, setCategory, error, searchMovies,setPage,page }} >
         {children}
     </MovieContext.Provider>
 

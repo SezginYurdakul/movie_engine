@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { MovieContext } from '../MovieProvider';
+import { MovieContext } from '../../contexts/MovieProvider';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -21,7 +21,7 @@ export default function Navbar() {
                     <li id="now_playing" onClick={handleClick}>NOW PLAYING</li>
                     <li id="popular" onClick={handleClick}>POPULAR</li>
                     <li id="upcoming" onClick={handleClick}> UPCOMING</li>
-                    <li > WATCH LATER</li>
+                    <li onClick={() => navigate('/favorites')}> WATCH LATER</li>
                     <input id="searchText" className="menu" type="search" placeholder=" Search" value={inputText}
                         onChange={(e) => setInputText(e.target.value)}
                     />

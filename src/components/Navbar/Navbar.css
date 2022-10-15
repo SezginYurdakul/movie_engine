@@ -12,6 +12,7 @@ a {
     padding: 15px;
     background-color: rgb(3,37,65);
     color: #fff;
+    position: sticky;
    }
    .nav-links a {
     color: #fff;
