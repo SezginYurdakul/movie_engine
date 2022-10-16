@@ -9,12 +9,12 @@ export default function Navbar() {
     const navigate = useNavigate();
 
     const handleClick = (e) => { setCategory(e.target.id); navigate('/') }
-    const handleSearch = () => { searchMovies(inputText) }
+    const handleSearch = () => { searchMovies(inputText); navigate('/searchList') }
 
 
     return (
         <nav className="navbar">
-            <div onClick={() => navigate('/')} className="logo">MOVIE ENGINE</div>
+            <div onClick={() => { setCategory('top_rated'); navigate('/') }} className="logo">MOVIE ENGINE</div>
             <ul className="nav-links">
                 <div className="menu">
                     <li id="top_rated" onClick={handleClick}> TOP RATED </li>

@@ -6,6 +6,7 @@ import { MovieProvider } from "./contexts/MovieProvider.js";
 import MovieDetail from "./pages/MovieDetail";
 import { FavoriteProvider } from "./contexts/FavouriteProvider";
 import FavoriteList from "./pages/FavoriteList";
+import SearchList from "./pages/SearchList";
 //import Main from './components/Main';
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
             <Routes>
               <Route path="/" element={<MovieList />} />
               <Route path="movie/:id" element={<MovieDetail />} />
-              <Route path='/favorites' element={<FavoriteList/>}/>
+              <Route path='/favorites' element={<FavoriteList />} />
+              <Route path='/searchList' element={<SearchList />} />
             </Routes>
           </Router>
         </FavoriteProvider>
