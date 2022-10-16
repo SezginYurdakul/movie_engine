@@ -34,7 +34,7 @@ export const MovieProvider = ({ children }) => {
 
 
 
-    // useEffect(() => {
+
     const searchMovies = async (searchText) => {
         const url = `https://api.themoviedb.org/3/search/movie?${API_key}&query=${searchText}`
 
@@ -46,22 +46,6 @@ export const MovieProvider = ({ children }) => {
             setError(error.message);
         }
     }
-    // searchMovies();
-    // }, [])
-
-
-    // const searchMovies = async (searchText) => {
-    //     const url = `https://api.themoviedb.org/3/search/movie?api_key=1b2e9155594c74034ae9f47ba073a1cd&query=${searchText}`
-
-    //     try {
-    //         const response = await fetch(url);
-    //         const { results } = await response.json();
-    //         setMovies(results);
-    //     } catch (error) {
-    //         setError(error.message);
-    //     }
-    // }
-
 
     return <MovieContext.Provider value={{ movies, setCategory, error, setPage, page, movieResults, searchMovies }} >
         {children}

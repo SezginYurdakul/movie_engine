@@ -25,7 +25,7 @@ export default function Navbar() {
                     <input id="searchText" className="menu" type="search" placeholder=" Search" value={inputText}
                         onChange={(e) => setInputText(e.target.value)}
                     />
-                    <button onClick={handleSearch} id="searchButton" className="menu" >Search</button>
+                    <button onClick={() => { inputText !== "" ? handleSearch() : alert('Enter some search text please !!') }} id="searchButton" className="menu" >Search</button>
 
                 </div>
             </ul>
