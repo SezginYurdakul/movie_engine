@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from './components/Navbar/Navbar';
+import Navbar from './components/Navbar';
 import MovieList from './pages/MovieList';
 import { MovieProvider } from "./contexts/MovieProvider.js";
 import MovieDetail from "./pages/MovieDetail";

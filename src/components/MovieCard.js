@@ -16,16 +16,18 @@ const MovieCard = ({ movie }) => {
 
     return (
         <>
-            <div  className="movie-card">
+            <div className="movie-card">
+                <label className="rating" >{movie.vote_average}</label>
                 <div onClick={() => navigate(`/movie/${movie.id}`)}>
-                <img src={img_path + movie.poster_path} className="poster" alt={movie.title}></img>
-                
+                    <img src={img_path + movie.poster_path} className="poster" alt={movie.title}></img>
 
-                <div className="movie-details">
-                    <div className="box">
-                        <h4 className="title">{movie.title}</h4>
-                        <p className="rating">{movie.vote_average}</p>
-                    </div>
+
+                    <div className="movie-details">
+                        <div className="box">
+                            <h3 className="title">{movie.title}</h3>
+
+                            <p className="production-date">{movie.release_date}</p>
+                        </div>
                     </div>
                 </div>
                 <div className="like-button"><img src={isFavorite ? heartSolid : heartRegular} onClick={handleFavorite} alt="fav" /></div>
