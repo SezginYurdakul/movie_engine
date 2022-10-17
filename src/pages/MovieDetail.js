@@ -1,14 +1,12 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { MovieContext } from "../contexts/MovieProvider";
-
 
 export default function MovieDetail() {
     const { id } = useParams();
     const [movie, setMovie] = useState([]);
 
-    const { error, isLoading, setError, setIsLoading } = useContext(MovieContext);
-
+    const [error, setError] = useState("");
+    const [isLoading, setIsLoading] = useState(true);
     const API_key = "api_key=1b2e9155594c74034ae9f47ba073a1cd";
     const url = `https://api.themoviedb.org/3/movie/${id}?${API_key}`;
 
@@ -25,14 +23,9 @@ export default function MovieDetail() {
             }
         };
         fetchDataMovieDetails();
-    }, []);
-
-
-    const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/";
-    const BACKDROP_SIZE = "w1280";
+    });
 
     return (
-
 
         <>{isLoading ? (<h3 className="loading" > Movie Details are Loading ...</h3>)
             : error ? (<h3 className="error">Something about API Link. Error : {error}</h3>)
@@ -40,14 +33,14 @@ export default function MovieDetail() {
                     <div className="detail-base">
                         <img
                             className="background-image"
-                            src={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${movie?.backdrop_path}`}
+                            src={`https://image.tmdb.org/t/p/w1280${movie?.backdrop_path}`}
                             alt={movie?.id}
                         />
                         <div className="movie-info-content">
                             <div className="detail-poster">
                                 <img
                                     className="poster-image"
-                                    src={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${movie?.poster_path}`}
+                                    src={`https://image.tmdb.org/t/p/w1280${movie?.poster_path}`}
                                     alt={movie?.id}
                                 />
                             </div>
