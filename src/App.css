@@ -113,7 +113,7 @@ button {
   padding: 10px;
   color: #ffff;
   font-size: 17px;
-  border: 3px solid rgb(0, 11, 68);
+  border: 1px solid rgb(0, 11, 68);
   border-radius: 20px;
   cursor: pointer;
   background: linear-gradient(
@@ -223,7 +223,22 @@ button {
   color: rgb(0, 24, 44);
   height: 1.5em;
   width: 100%;
+  text-align: center;
+}
 
+.error {
+  background-color: rgb(228, 171, 171);
+  color: rgb(0, 24, 44);
+  height: 1.5em;
+  width: 100%;
+  text-align: center;
+}
+
+.loading {
+  background-color: rgb(147, 241, 171);
+  color: rgb(0, 24, 44);
+  height: 1.5em;
+  width: 100%;
   text-align: center;
 }
 
