@@ -23,7 +23,7 @@ body {
 }
 .like-button {
   position: absolute;
-  right: 15px;
+  right: 10px;
   bottom: 10px;
   width: 9%;
   cursor: pointer;
@@ -44,6 +44,7 @@ body {
 a {
   text-decoration: none;
 }
+
 li {
   list-style: none;
 }
@@ -172,7 +173,6 @@ button {
 }
 .poster-image {
   max-width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 5px 10px;
 }
 .movie-info-text {
   display: flex;
@@ -217,6 +217,15 @@ button {
   font-size: 0.6em;
 }
 
+.empty-favList {
+  background-color: rgb(228, 171, 171);
+  color: rgb(0, 24, 44);
+  height: 1.5em;
+  width: 100%;
+
+  text-align: center;
+}
+
 @media (min-width: 1024px) {
   .movie-card {
     grid-column-start: span 3;
@@ -236,5 +245,11 @@ button {
   }
   .navbar {
     flex-direction: column;
+  }
+  .poster-image {
+    display: none;
+  }
+  .movie-info-text {
+    width: 80%;
   }
 }
