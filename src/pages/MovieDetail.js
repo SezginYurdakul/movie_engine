@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 export default function MovieDetail() {
@@ -19,38 +19,45 @@ export default function MovieDetail() {
             }
         }
         fetchDataMovieDetails();
-
-
     }, [])
 
     const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/';
     const BACKDROP_SIZE = 'w1280';
-    
+
     return (
-        <div>
-            <div className="movieinfo-content">
-                <div className="movieinfo-thumb">
-                    <img
-                        src={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${movie?.backdrop_path}`
+        <div className='detail-base'>
+            <img className='background-image'
+                src={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${movie?.backdrop_path}`
+                }
+                alt={movie?.id}
+            />
+            <div className="movie-info-content">
+                <div className='detail-poster'>
+                    <img className='poster-image'
+                        src={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${movie?.poster_path}`
                         }
                         alt={movie?.id}
-
-
                     />
                 </div>
-                <div className="movieinfo-text">
-                    <h1>{movie?.title}</h1>
-                    <h3>PLOT</h3>
-                    <p>{movie?.overview}</p>
+                <div className="movie-info-text">
+                    <h1 >{movie?.title} <span>({movie?.release_date?.substring(0, 4)})</span></h1>
+                    <div className='genres'>
+                        {movie?.genres?.map((genre) =>
+                            <span key={genre.name}>{genre.name} </span>
+                        )}
+                    </div>
+                    <h3 >Overview</h3>
+                    <p >{movie?.overview}</p>
 
                     <div className="rating-director">
                         <div>
-                            <h3>IMDB RATING</h3>
-                            <div className="score">{movie?.vote_average}</div>
+                            <h3>IMDB Rating </h3>
+                            <div className="score">{movie?.vote_average?.toFixed(1)}</div>
                         </div>
 
+
                     </div>
-                    
+
                 </div>
             </div>
         </div>
