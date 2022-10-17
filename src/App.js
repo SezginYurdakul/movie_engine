@@ -7,7 +7,7 @@ import MovieDetail from "./pages/MovieDetail";
 import { FavoriteProvider } from "./contexts/FavouriteProvider";
 import FavoriteList from "./pages/FavoriteList";
 import SearchList from "./pages/SearchList";
-//import Main from './components/Main';
+
 function App() {
   return (
     <div className="App">

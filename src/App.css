@@ -88,12 +88,12 @@ li {
   margin-left: 3em;
 }
 .menu li:hover {
-  transition: 0.3s ease;
+  transition: 0.5s ease;
   cursor: pointer;
   align-items: center;
   justify-content: center;
   color: aquamarine;
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 .menu li {
   padding: 5px 14px;
@@ -151,6 +151,7 @@ button {
 }
 .title {
   color: rgb(1, 57, 102);
+  width: 90%;
 }
 .production-date {
   color: rgb(3, 94, 168);

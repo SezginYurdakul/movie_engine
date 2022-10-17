@@ -4,12 +4,12 @@ import { MovieContext } from '../contexts/MovieProvider';
 
 export default function Navbar() {
     const { setCategory, searchMovies } = useContext(MovieContext);
-    const [inputText, setInputText] = useState("");
+    const [searchText, setSearchText] = useState("");
     const navigate = useNavigate();
 
     const handleClick = (e) => { setCategory(e.target.id); navigate('/') }
-    const handleSearch = () => { searchMovies(inputText); navigate('/searchList') }
-
+    const handleSearch = () => { searchMovies(searchText); navigate('/searchList') }
+    const handleKeyDown = (event) => { if (event.key === 'Enter') { handleSearch() } }
 
     return (
         <nav className="navbar">
@@ -19,7 +19,6 @@ export default function Navbar() {
             </div>
 
             <ul className="menu">
-
                 <li id="top_rated" onClick={handleClick}> Top Rated </li>
                 <li id="now_playing" onClick={handleClick}>Now Playing</li>
                 <li id="popular" onClick={handleClick}>Popular</li>
@@ -27,18 +26,13 @@ export default function Navbar() {
                 <li onClick={() => navigate('/favorites')}> Watch Later</li>
             </ul>
             <div className="search">
-                <input id="searchText" type="search" placeholder=" Search" value={inputText}
-                    onChange={(e) => setInputText(e.target.value)}
-                />
-                <button onClick={handleSearch} disabled={!inputText}>Search</button>
-
+                <input id="searchText" type="search" placeholder=" Search" value={searchText}
+                    onChange={(e) => setSearchText(e.target.value)}
+                    onKeyDown={handleKeyDown} />
+                <button onClick={handleSearch} disabled={!searchText}>Search</button>
             </div>
-
-
         </nav>
     )
 }
 
-
-//() => { inputText !== "" ? handleSearch() : alert('Enter some search text please !!') }
 
