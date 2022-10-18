@@ -17,7 +17,7 @@ To search movies by text , this link [https://api.themoviedb.org/3/movie/{catego
 
 
 ## Live Link
-You can reach the live project here [Movie Engine](https://634d72cf6e81d14d710de7a9--playful-licorice-9dd2ad.netlify.app/)
+You can reach the live project here [Movie Engine](https://movieengineapp.netlify.app/)
 
 ## Project GitHub Link
 You can reach the live project here [Project GitHub Link](https://github.com/SezginYurdakul/movie_engine)
